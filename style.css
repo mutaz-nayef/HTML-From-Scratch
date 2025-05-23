@@ -248,6 +248,20 @@
     justify-content: space-between;
   }
 
+  [aria-controls="primary-nav"] {
+    z-index: 100;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    img {
+      border-radius: 0;
+    }
+  }
+
+  [aria-controls="primary-nav"] {
+    display: none;
+  }
   .primary-navigation {
     ul {
       list-style: none;
@@ -259,6 +273,40 @@
     }
     a {
       text-decoration: none;
+    }
+
+    @media (width < 760px) {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 10;
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      font-family: var(--ff-heading);
+      background-color: var(--background-accent-main);
+      padding: 2rem;
+      border-radius: 0 0 0 var(--border-radius-3);
+
+      ul {
+        gap: 0;
+        flex-direction: column;
+      }
+      li + li {
+        margin-block-start: 1.5rem;
+        padding-block-start: 1.5rem;
+        border-top: 2px solid var(--background-accent-light);
+      }
+    }
+  }
+
+  @media (width < 760px) {
+    [aria-controls="primary-nav"] {
+      display: block;
+    }
+    [aria-expanded="true"] ~ .primary-navigation {
+      /* ~ if the button and primary-navigation have a contend div between so use : ~ , if not use:+   */
+      display: block;
     }
   }
 
