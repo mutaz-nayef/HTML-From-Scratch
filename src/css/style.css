@@ -449,10 +449,6 @@
     animation-range-start: exit;
   }
 
-  .card {
-    animation: fade-in both;
-    animation-timeline: view();
-  }
   .hero__title {
     font-size: var(--font-size-heading-lg);
     span {
